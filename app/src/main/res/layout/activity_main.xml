@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/input"
+            android:id="@+id/entrada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
@@ -29,7 +29,7 @@
             tools:text="5+10-3" />
 
         <TextView
-            android:id="@+id/output"
+            android:id="@+id/resultado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
@@ -49,21 +49,21 @@
         <TableRow>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_clear"
+                android:id="@+id/botao_limpar"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:textColor="@color/red"
                 android:text="C" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_bracket"
+                android:id="@+id/botao_parenteses_abrir"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:textColor="@color/green"
                 android:text="(" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_bracket_r"
+                android:id="@+id/botao_parenteses_fechar"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
@@ -71,7 +71,7 @@
                 android:text=")" />
             <androidx.appcompat.widget.AppCompatButton
                 android:textColor="@color/green"
-                android:id="@+id/button_division"
+                android:id="@+id/botao_divisao"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
@@ -82,26 +82,26 @@
         <TableRow>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_7"
+                android:id="@+id/botao_7"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="7" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_8"
+                android:id="@+id/botao_8"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="8" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_9"
+                android:id="@+id/botao_9"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="9" />
             <androidx.appcompat.widget.AppCompatButton
                 android:textColor="@color/green"
-                android:id="@+id/button_multiply"
+                android:id="@+id/botao_multiplicacao"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
@@ -111,26 +111,26 @@
         <TableRow>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_4"
+                android:id="@+id/botao_4"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="4" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_5"
+                android:id="@+id/botao_5"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="5" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_6"
+                android:id="@+id/botao_6"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="6" />
             <androidx.appcompat.widget.AppCompatButton
                 android:textColor="@color/green"
-                android:id="@+id/button_subtraction"
+                android:id="@+id/botao_subtracao"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
@@ -141,55 +141,56 @@
         <TableRow>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_1"
+                android:id="@+id/botao_1"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="1" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_2"
+                android:id="@+id/botao_2"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="2" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_3"
+                android:id="@+id/botao_3"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="3" />
             <androidx.appcompat.widget.AppCompatButton
                 android:textColor="@color/green"
-                android:id="@+id/button_addition"
+                android:id="@+id/botao_adicao"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="+" />
 
         </TableRow>
+
         <TableRow>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_croxx"
+                android:id="@+id/botao_croxx"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="AC" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_0"
+                android:id="@+id/botao_0"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="0" />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_dot"
+                android:id="@+id/botao_ponto"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 style="@style/Button_Style"
                 android:text="." />
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_equals"
+                android:id="@+id/botao_igual"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_weight="1"

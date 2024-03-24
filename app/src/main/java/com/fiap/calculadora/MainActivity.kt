@@ -1,122 +1,120 @@
 package com.fiap.calculadora
 
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.fiap.calculadora.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import org.mariuszgromada.math.mxparser.Expression
 import java.text.DecimalFormat
 
+
 class MainActivity : AppCompatActivity() {
+
+
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
-        button_clear.setOnClickListener {
-            input.text = ""
-            output.text = ""
-        }
-
-        button_bracket.setOnClickListener {
-
-            input.text = addToInputText("(")
-
-        }
-        button_bracket_r.setOnClickListener {
-
-            input.text = addToInputText(")")
-
+        binding.botaoLimpar.setOnClickListener {
+            binding.entrada.text = ""
+            binding.resultado.text = ""
         }
 
-        button_croxx.setOnClickListener {
-            val removedLast = input.text.toString().dropLast(1)
-            input.text = removedLast
+        binding.botaoParentesesAbrir.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("(")
+        }
+        binding.botaoParentesesFechar.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada(")")
         }
 
-        button_0.setOnClickListener {
-            input.text = addToInputText("0")
-        }
-        button_1.setOnClickListener {
-            input.text = addToInputText("1")
-        }
-        button_2.setOnClickListener {
-            input.text = addToInputText("2")
-        }
-        button_3.setOnClickListener {
-            input.text = addToInputText("3")
-        }
-        button_4.setOnClickListener {
-            input.text = addToInputText("4")
-        }
-        button_5.setOnClickListener {
-            input.text = addToInputText("5")
-        }
-        button_6.setOnClickListener {
-            input.text = addToInputText("6")
-        }
-        button_7.setOnClickListener {
-            input.text = addToInputText("7")
-        }
-        button_8.setOnClickListener {
-            input.text = addToInputText("8")
-        }
-        button_9.setOnClickListener {
-            input.text = addToInputText("9")
-        }
-        button_dot.setOnClickListener {
-            input.text = addToInputText(".")
-        }
-        button_division.setOnClickListener {
-            input.text = addToInputText("÷")
-        }
-        button_multiply.setOnClickListener {
-            input.text = addToInputText("×")
+        binding.botaoCroxx.setOnClickListener {
+            val removidoUltimo = entrada.text.toString().dropLast(1)
+            entrada.text = removidoUltimo
         }
 
-        button_subtraction.setOnClickListener {
-            input.text = addToInputText("-")
+        binding.botao0.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("0")
         }
-        button_addition.setOnClickListener {
-            input.text = addToInputText("+")
+        binding.botao1.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("1")
+        }
+        binding.botao2.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("2")
+        }
+        binding.botao3.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("3")
+        }
+        binding.botao4.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("4")
+        }
+        binding.botao5.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("5")
+        }
+        binding.botao6.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("6")
+        }
+        binding.botao7.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("7")
+        }
+        binding.botao8.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("8")
+        }
+        binding.botao9.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("9")
+        }
+        binding.botaoPonto.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada(".")
+        }
+        binding.botaoDivisao.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("÷")
+        }
+        binding.botaoMultiplicacao.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("×")
         }
 
-        button_equals.setOnClickListener {
-            showResult()
+        binding.botaoSubtracao.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("-")
+        }
+        binding.botaoAdicao.setOnClickListener {
+            entrada.text = adicionarAoTextoDeEntrada("+")
+        }
+
+        binding.botaoIgual.setOnClickListener {
+            mostrarResultado()
         }
     }
 
-    private fun addToInputText(buttonValue: String): String {
-
-        return input.text.toString() + "" + buttonValue
+    private fun adicionarAoTextoDeEntrada(valorBotao: String): String {
+        return entrada.text.toString() + "" + valorBotao
     }
 
-    private fun getInputExpression(): String {
-        var expression = input.text.replace(Regex("÷"), "/")
-        expression = expression.replace(Regex("×"), "*")
-        return expression
+    private fun obterExpressaoDeEntrada(): String {
+        var expressao = entrada.text.replace(Regex("÷"), "/")
+        expressao = expressao.replace(Regex("×"), "*")
+        return expressao
     }
 
-    private fun showResult() {
+    private fun mostrarResultado() {
         try {
-            val expression = getInputExpression()
-            val result = Expression(expression).calculate()
-            if (result.isNaN()) {
-
-                output.text = ""
-                output.setTextColor(ContextCompat.getColor(this, R.color.red))
+            val expressao = obterExpressaoDeEntrada()
+            val resultadoCalculado = Expression(expressao).calculate()
+            if (resultadoCalculado.isNaN()) {
+                resultado.text = ""
+                resultado.setTextColor(ContextCompat.getColor(this, R.color.red))
             } else {
-                output.text = DecimalFormat("0.######").format(result).toString()
-                output.setTextColor(ContextCompat.getColor(this, R.color.green))
+                resultado.text = DecimalFormat("0.######").format(resultadoCalculado).toString()
+                resultado.setTextColor(ContextCompat.getColor(this, R.color.green))
             }
         } catch (e: Exception) {
-
-            output.text = ""
-            output.setTextColor(ContextCompat.getColor(this, R.color.red))
+            resultado.text = ""
+            resultado.setTextColor(ContextCompat.getColor(this, R.color.red))
         }
     }
 }
