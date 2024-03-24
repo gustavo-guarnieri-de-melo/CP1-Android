@@ -1,6 +1,6 @@
-# CalcularaFiap
+# CalculadoraFiap
 
-Este repositório contém o projeto "CalcularaFiap", desenvolvido como parte das atividades do curso de **Análise e Desenvolvimento de Sistemas** da [Faculdade de Informática e Administração Paulista (FIAP)](https://www.fiap.com.br/).
+Este repositório contém o projeto "CalculadoraFiap", desenvolvido como parte das atividades do curso de **Análise e Desenvolvimento de Sistemas** da [Faculdade de Informática e Administração Paulista (FIAP)](https://www.fiap.com.br/).
 
 ## Integrantes do Grupo
 - Gustavo Guarnieri de Melo RM: 97100
